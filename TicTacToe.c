@@ -1,12 +1,4 @@
 #include <stdio.h>
-void CriarTabuleiro(char tb[3][3], int cnf[3][3]){
-    for(int h=0;h<3;h++){
-        for(int b=0;b<3;b++){
-            tb[b][h]= ' ';
-            cnf[b][h]=0;
-        }
-    }
-}
 void PrintTabuleiro(char tb[3][3]){
     system("cls");
     printf("%c|%c|%c\n", tb[0][0], tb[0][1], tb[0][2]);
@@ -45,14 +37,13 @@ int vencedor(char tb[3][3]){
     for(int x=0;x<3;x++){
         if(tb[x][0]=='X' && tb[x][1]=='X' && tb[x][2]=='X'){return 1;}
         if(tb[0][x]=='X' && tb[1][x]=='X' && tb[2][x]=='X'){return 1;}
+        
+        if(tb[x][0]=='O' && tb[x][1]=='O' && tb[x][2]=='O'){return 2;}
+        if(tb[0][x]=='O' && tb[1][x]=='O' && tb[2][x]=='O'){return 2;}
     }
     if(tb[0][0]=='X' && tb[1][1]=='X' && tb[2][2]=='X'){return(1);}
     if(tb[2][0]=='X' && tb[1][1]=='X' && tb[0][2]=='X'){return(1);}
 
-    for(int x=0;x<3;x++){
-        if(tb[x][0]=='O' && tb[x][1]=='O' && tb[x][2]=='O'){return 2;}
-        if(tb[0][x]=='O' && tb[1][x]=='O' && tb[2][x]=='O'){return 2;}
-    }
     if(tb[0][0]=='O' && tb[1][1]=='O' && tb[2][2]=='O'){return(2);}
     if(tb[2][0]=='O' && tb[1][1]=='O' && tb[0][2]=='O'){return(2);}
 
@@ -67,11 +58,10 @@ int empate(int cnf[3][3]){
     return 3;
 }
 int main(){
-    int v=0, cnf[3][3];
-    char tb[3][3];
+    int v=0, cnf[3][3]={{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+    char tb[3][3]={{' ', ' ', ' ',}, {' ', ' ', ' ',}, {' ', ' ', ' ',}};
     printf("o premeiro valor informado será a posição horizontal e o segundo será a posição vertical\n");
     system("pause");
-    CriarTabuleiro(tb, cnf);
     PrintTabuleiro(tb);
     do{
         LerX(tb, cnf, &v);
