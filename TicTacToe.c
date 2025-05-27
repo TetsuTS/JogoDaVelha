@@ -1,11 +1,12 @@
 #include <stdio.h>
 void PrintTabuleiro(char tb[3][3]){
     system("cls");
-    printf("%c|%c|%c\n", tb[0][0], tb[0][1], tb[0][2]);
+    printf("1 2 3\n");
+    printf("%c|%c|%c 1\n", tb[0][0], tb[0][1], tb[0][2]);
     printf("-+-+-\n");
-    printf("%c|%c|%c\n", tb[1][0], tb[1][1], tb[1][2]);
+    printf("%c|%c|%c 2\n", tb[1][0], tb[1][1], tb[1][2]);
     printf("-+-+-\n");
-    printf("%c|%c|%c\n", tb[2][0], tb[2][1], tb[2][2]);
+    printf("%c|%c|%c 3\n", tb[2][0], tb[2][1], tb[2][2]);
 }
 void LerX(char tb[3][3], int cnf[3][3], int *vic){
     int b, h;
@@ -84,5 +85,5 @@ int main(){
         printf("empate\n");
     }
     system("pause");
-    return 0;
+    return v;
 }
